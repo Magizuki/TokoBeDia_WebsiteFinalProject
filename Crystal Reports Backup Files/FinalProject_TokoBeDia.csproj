@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4462F504-806A-4204-8077-0E58F32A8672}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinalProject_TokoBeDia</RootNamespace>
+    <AssemblyName>FinalProject_TokoBeDia</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\DatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
+    <EntityDeploy Include="Model\DatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\DatabaseModel.edmx.diagram">
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="TokoBeDiaDataSet.xsc">
+      <DependentUpon>TokoBeDiaDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="TokoBeDiaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TokoBeDiaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="TokoBeDiaDataSet.xss">
+      <DependentUpon>TokoBeDiaDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\FinalProject_TokoBeDia.mdf" />
+    <Content Include="App_Data\FinalProject_TokoBeDia_log.ldf">
+      <DependentUpon>FinalProject_TokoBeDia.mdf</DependentUpon>
+    </Content>
+    <Content Include="View\AddToCart_Page.aspx" />
+    <Content Include="View\ChangePassword_Page.aspx" />
+    <Content Include="View\Home_Page.aspx" />
+    <Content Include="View\InsertPaymentType_Page.aspx" />
+    <Content Include="View\InsertProductType_Page.aspx" />
+    <Content Include="View\InsertProduct_Page.aspx" />
+    <Content Include="View\Login_Page.aspx" />
+    <Content Include="View\Register_Page.aspx" />
+    <Content Include="View\UpdateCart_Page.aspx" />
+    <Content Include="View\UpdatePaymentTypeViaHome.aspx" />
+    <Content Include="View\UpdatePaymentType_Page.aspx" />
+    <Content Include="View\UpdateProductTypeViaHome.aspx" />
+    <Content Include="View\UpdateProductType_Page.aspx" />
+    <Content Include="View\UpdateProductViaHome.aspx" />
+    <Content Include="View\UpdateProduct_Page.aspx" />
+    <Content Include="View\UpdateProfile_Page.aspx" />
+    <Content Include="View\ViewCart_Page.aspx" />
+    <Content Include="View\ViewPaymentType_Page.aspx" />
+    <Content Include="View\ViewProductType_Page.aspx" />
+    <Content Include="View\ViewProduct_Page.aspx" />
+    <Content Include="View\ViewProfile_Page.aspx" />
+    <Content Include="View\ViewTransactionHistory_Page.aspx" />
+    <Content Include="View\ViewTransactionReport_Page.aspx" />
+    <Content Include="View\ViewUser_Page.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\PaymentTypeController.cs" />
+    <Compile Include="Controller\ProductController.cs" />
+    <Compile Include="Controller\ProductTypeController.cs" />
+    <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Factory\CartFactory.cs" />
+    <Compile Include="Factory\PaymentTypeFactory.cs" />
+    <Compile Include="Factory\ProductFactory.cs" />
+    <Compile Include="Factory\ProductTypeFactory.cs" />
+    <Compile Include="Factory\TransactionFactory.cs" />
+    <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="Handler\CartHandler.cs" />
+    <Compile Include="Handler\PaymentTypeHandler.cs" />
+    <Compile Include="Handler\ProductHandler.cs" />
+    <Compile Include="Handler\ProductTypeHandler.cs" />
+    <Compile Include="Handler\TransactionHandler.cs" />
+    <Compile Include="Handler\UserHandler.cs" />
+    <Compile Include="Model\Cart.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DetailTransaction.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HeaderTransaction.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PaymentType.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProductType.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Role.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\PaymentTypeRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ProductTypeRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="TokoBeDiaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TokoBeDiaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\AddToCart_Page.aspx.cs">
+      <DependentUpon>AddToCart_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AddToCart_Page.aspx.designer.cs">
+      <DependentUpon>AddToCart_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangePassword_Page.aspx.cs">
+      <DependentUpon>ChangePassword_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ChangePassword_Page.aspx.designer.cs">
+      <DependentUpon>ChangePassword_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home_Page.aspx.cs">
+      <DependentUpon>Home_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Home_Page.aspx.designer.cs">
+      <DependentUpon>Home_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InsertPaymentType_Page.aspx.cs">
+      <DependentUpon>InsertPaymentType_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertPaymentType_Page.aspx.designer.cs">
+      <DependentUpon>InsertPaymentType_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InsertProductType_Page.aspx.cs">
+      <DependentUpon>InsertProductType_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertProductType_Page.aspx.designer.cs">
+      <DependentUpon>InsertProductType_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InsertProduct_Page.aspx.cs">
+      <DependentUpon>InsertProduct_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertProduct_Page.aspx.designer.cs">
+      <DependentUpon>InsertProduct_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login_Page.aspx.cs">
+      <DependentUpon>Login_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Login_Page.aspx.designer.cs">
+      <DependentUpon>Login_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Register_Page.aspx.cs">
+      <DependentUpon>Register_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Register_Page.aspx.designer.cs">
+      <DependentUpon>Register_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateCart_Page.aspx.cs">
+      <DependentUpon>UpdateCart_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateCart_Page.aspx.designer.cs">
+      <DependentUpon>UpdateCart_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdatePaymentTypeViaHome.aspx.cs">
+      <DependentUpon>UpdatePaymentTypeViaHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdatePaymentTypeViaHome.aspx.designer.cs">
+      <DependentUpon>UpdatePaymentTypeViaHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdatePaymentType_Page.aspx.cs">
+      <DependentUpon>UpdatePaymentType_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdatePaymentType_Page.aspx.designer.cs">
+      <DependentUpon>UpdatePaymentType_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateProductTypeViaHome.aspx.cs">
+      <DependentUpon>UpdateProductTypeViaHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProductTypeViaHome.aspx.designer.cs">
+      <DependentUpon>UpdateProductTypeViaHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateProductType_Page.aspx.cs">
+      <DependentUpon>UpdateProductType_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProductType_Page.aspx.designer.cs">
+      <DependentUpon>UpdateProductType_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateProductViaHome.aspx.cs">
+      <DependentUpon>UpdateProductViaHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProductViaHome.aspx.designer.cs">
+      <DependentUpon>UpdateProductViaHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateProduct_Page.aspx.cs">
+      <DependentUpon>UpdateProduct_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProduct_Page.aspx.designer.cs">
+      <DependentUpon>UpdateProduct_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateProfile_Page.aspx.cs">
+      <DependentUpon>UpdateProfile_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProfile_Page.aspx.designer.cs">
+      <DependentUpon>UpdateProfile_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewCart_Page.aspx.cs">
+      <DependentUpon>ViewCart_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewCart_Page.aspx.designer.cs">
+      <DependentUpon>ViewCart_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewPaymentType_Page.aspx.cs">
+      <DependentUpon>ViewPaymentType_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewPaymentType_Page.aspx.designer.cs">
+      <DependentUpon>ViewPaymentType_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewProductType_Page.aspx.cs">
+      <DependentUpon>ViewProductType_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewProductType_Page.aspx.designer.cs">
+      <DependentUpon>ViewProductType_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewProduct_Page.aspx.cs">
+      <DependentUpon>ViewProduct_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewProduct_Page.aspx.designer.cs">
+      <DependentUpon>ViewProduct_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewProfile_Page.aspx.cs">
+      <DependentUpon>ViewProfile_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewProfile_Page.aspx.designer.cs">
+      <DependentUpon>ViewProfile_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewTransactionHistory_Page.aspx.cs">
+      <DependentUpon>ViewTransactionHistory_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewTransactionHistory_Page.aspx.designer.cs">
+      <DependentUpon>ViewTransactionHistory_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewTransactionReport_Page.aspx.cs">
+      <DependentUpon>ViewTransactionReport_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewTransactionReport_Page.aspx.designer.cs">
+      <DependentUpon>ViewTransactionReport_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewUser_Page.aspx.cs">
+      <DependentUpon>ViewUser_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ViewUser_Page.aspx.designer.cs">
+      <DependentUpon>ViewUser_Page.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="aspnet_client\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TransactionReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TransactionReport.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61345</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61345/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
