@@ -1,3 +1,3 @@
 # TokoBeDia_WebsiteFinalProject
 
-Backend Website Project using ASP.Net with C# programming language
+This is our group backend website project to fullfil pattern software design final project.
